@@ -1,12 +1,11 @@
 
 import { Photo } from './types';
 
-// Como os arquivos agora estão na pasta /public, o caminho deve incluir o prefixo da pasta.
-// Isso garante que o navegador encontre os arquivos corretamente no GitHub Pages ou Vercel.
+// Usando caminhos absolutos (/public/...) para garantir que o Vercel encontre os arquivos na raiz.
 export const PHOTOS: Photo[] = [
   { 
     id: 1, 
-    url: "public/input_file_0.png", 
+    url: "/public/input_file_0.png", 
     caption: "Luz própria", 
     rotation: -5, 
     offsetX: -70, 
@@ -14,7 +13,7 @@ export const PHOTOS: Photo[] = [
   },
   { 
     id: 2, 
-    url: "public/input_file_1.png", 
+    url: "/public/input_file_1.png", 
     caption: "Momentos de paz", 
     rotation: 6, 
     offsetX: 70, 
@@ -22,7 +21,7 @@ export const PHOTOS: Photo[] = [
   },
   { 
     id: 3, 
-    url: "public/input_file_2.png", 
+    url: "/public/input_file_2.png", 
     caption: "Felicidade solta", 
     rotation: -10, 
     offsetX: -25, 
@@ -30,7 +29,7 @@ export const PHOTOS: Photo[] = [
   },
   { 
     id: 4, 
-    url: "public/input_file_3.png", 
+    url: "/public/input_file_3.png", 
     caption: "Amor puro", 
     rotation: 8, 
     offsetX: 95, 
@@ -38,7 +37,7 @@ export const PHOTOS: Photo[] = [
   },
   { 
     id: 5, 
-    url: "public/input_file_4.png", 
+    url: "/public/input_file_4.png", 
     caption: "Sorriso doce", 
     rotation: -4, 
     offsetX: -85, 
@@ -46,7 +45,7 @@ export const PHOTOS: Photo[] = [
   },
   { 
     id: 6, 
-    url: "public/input_file_5.png", 
+    url: "/public/input_file_5.png", 
     caption: "Energia vibrante", 
     rotation: 5, 
     offsetX: 45, 

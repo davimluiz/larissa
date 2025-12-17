@@ -11,6 +11,7 @@ interface PolaroidProps {
 
 const Polaroid: React.FC<PolaroidProps> = ({ photo, index, onSelect }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   return (
     <motion.div
@@ -35,16 +36,25 @@ const Polaroid: React.FC<PolaroidProps> = ({ photo, index, onSelect }) => {
           src={photo.url} 
           alt={photo.caption} 
           onLoad={() => setIsLoaded(true)}
-          className="w-full h-full object-cover block"
-          style={{ 
-            opacity: isLoaded ? 1 : 1, // Forçando opacidade 1 para diagnóstico
-            filter: 'none' 
+          onError={(e) => {
+            console.error(`Falha ao carregar imagem: ${photo.url}`);
+            setHasError(true);
+            setIsLoaded(true); // Para ocultar o spinner e mostrar o erro
           }}
+          className={`w-full h-full object-cover block transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading="eager"
         />
-        {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-stone-50">
+        
+        {!isLoaded && !hasError && (
+          <div className="absolute inset-0 flex items-center justify-center bg-stone-100">
              <div className="w-4 h-4 border-2 border-yellow-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+
+        {hasError && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-stone-200 p-2 text-center">
+            <span className="text-[10px] text-stone-500 font-bold">Arquivo não encontrado</span>
+            <span className="text-[8px] text-stone-400 break-all">{photo.url}</span>
           </div>
         )}
       </div>
