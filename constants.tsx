@@ -4,51 +4,51 @@ import { Photo } from './types';
 export const PHOTOS: Photo[] = [
   { 
     id: 1, 
-    url: "./input_file_0.png", 
+    url: "input_file_0.png", 
     caption: "Luz própria", 
     rotation: -5, 
-    offsetX: -65, 
-    offsetY: -35 
+    offsetX: -70, 
+    offsetY: -30 
   },
   { 
     id: 2, 
-    url: "./input_file_1.png", 
+    url: "input_file_1.png", 
     caption: "Momentos de paz", 
     rotation: 6, 
-    offsetX: 65, 
-    offsetY: -50 
+    offsetX: 70, 
+    offsetY: -45 
   },
   { 
     id: 3, 
-    url: "./input_file_2.png", 
+    url: "input_file_2.png", 
     caption: "Felicidade solta", 
-    rotation: -12, 
+    rotation: -10, 
     offsetX: -25, 
-    offsetY: 25 
+    offsetY: 30 
   },
   { 
     id: 4, 
-    url: "./input_file_3.png", 
+    url: "input_file_3.png", 
     caption: "Amor puro", 
-    rotation: 9, 
-    offsetX: 90, 
-    offsetY: 45 
+    rotation: 8, 
+    offsetX: 95, 
+    offsetY: 50 
   },
   { 
     id: 5, 
-    url: "./input_file_4.png", 
+    url: "input_file_4.png", 
     caption: "Sorriso doce", 
-    rotation: -6, 
+    rotation: -4, 
     offsetX: -85, 
-    offsetY: 115 
+    offsetY: 125 
   },
   { 
     id: 6, 
-    url: "./input_file_5.png", 
+    url: "input_file_5.png", 
     caption: "Energia vibrante", 
     rotation: 5, 
     offsetX: 45, 
-    offsetY: 135 
+    offsetY: 145 
   },
 ];
 
