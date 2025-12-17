@@ -26,21 +26,21 @@ const Polaroid: React.FC<PolaroidProps> = ({ photo, index, onSelect }) => {
       }}
       whileTap={{ scale: 0.95 }}
       onClick={() => onSelect(photo)}
-      className="bg-white p-1 pb-4 md:p-2 md:pb-10 shadow-[0_10px_30px_rgba(0,0,0,0.4)] cursor-pointer group w-24 md:w-52 lg:w-60 border border-stone-200"
+      className="bg-white p-1 pb-4 md:p-2 md:pb-10 shadow-[0_10px_35px_rgba(0,0,0,0.6)] cursor-pointer group w-24 md:w-52 lg:w-60 border border-stone-200"
     >
-      <div className="w-full aspect-square overflow-hidden bg-stone-100 relative shadow-inner">
+      <div className="w-full aspect-square overflow-hidden bg-stone-800 relative shadow-inner">
         <img 
           src={photo.url} 
           alt={photo.caption} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          style={{ display: 'block' }}
+          className="w-full h-full object-cover transition-opacity duration-500"
+          style={{ display: 'block', opacity: 1 }}
           loading="eager"
           onError={(e) => {
             console.error("Erro ao carregar imagem:", photo.url);
-            // Se a imagem falhar, mostra uma cor sólida para não ficar "branco invisível"
             const target = e.target as HTMLImageElement;
-            target.style.opacity = '0';
-            target.parentElement!.style.backgroundColor = '#2c2c2c';
+            target.style.display = 'none';
+            target.parentElement!.classList.add('flex', 'items-center', 'justify-center');
+            target.parentElement!.innerHTML = '<span class="text-[8px] text-stone-500 uppercase tracking-widest">Erro</span>';
           }}
         />
       </div>
