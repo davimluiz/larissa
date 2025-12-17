@@ -1,6 +1,8 @@
 
 import { Photo } from './types';
 
+// Usamos o caminho relativo direto ("./nome-do-arquivo.png") 
+// Já que as imagens estão na mesma pasta que o index.html no seu GitHub
 export const PHOTOS: Photo[] = [
   { 
     id: 1, 
