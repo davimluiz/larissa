@@ -30,17 +30,20 @@ const Polaroid: React.FC<PolaroidProps> = ({ photo, index, onSelect }) => {
       onClick={() => onSelect(photo)}
       className="bg-white p-1 pb-4 md:p-2 md:pb-10 shadow-[0_15px_40px_rgba(0,0,0,0.6)] cursor-pointer group w-28 md:w-56 border border-stone-200"
     >
-      <div className="w-full aspect-square overflow-hidden bg-stone-200 relative shadow-inner flex items-center justify-center">
+      <div className="w-full aspect-square overflow-hidden bg-stone-100 relative shadow-inner flex items-center justify-center">
         <img 
           src={photo.url} 
           alt={photo.caption} 
           onLoad={() => setIsLoaded(true)}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          style={{ display: 'block' }}
+          className="w-full h-full object-cover block"
+          style={{ 
+            opacity: isLoaded ? 1 : 1, // Forçando opacidade 1 para diagnóstico
+            filter: 'none' 
+          }}
           loading="eager"
         />
         {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center bg-stone-50">
              <div className="w-4 h-4 border-2 border-yellow-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
