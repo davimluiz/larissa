@@ -35,26 +35,28 @@ const Polaroid: React.FC<PolaroidProps> = ({ photo, index, onSelect }) => {
         <img 
           src={photo.url} 
           alt={photo.caption} 
-          onLoad={() => setIsLoaded(true)}
-          onError={(e) => {
-            console.error(`Falha ao carregar imagem: ${photo.url}`);
-            setHasError(true);
-            setIsLoaded(true); // Para ocultar o spinner e mostrar o erro
+          onLoad={() => {
+            console.log(`Sucesso ao carregar: ${photo.url}`);
+            setIsLoaded(true);
           }}
-          className={`w-full h-full object-cover block transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onError={() => {
+            console.error(`Erro crítico no caminho: ${photo.url}`);
+            setHasError(true);
+          }}
+          className={`w-full h-full object-cover block transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading="eager"
         />
         
         {!isLoaded && !hasError && (
-          <div className="absolute inset-0 flex items-center justify-center bg-stone-100">
+          <div className="absolute inset-0 flex items-center justify-center bg-stone-50">
              <div className="w-4 h-4 border-2 border-yellow-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
 
         {hasError && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-stone-200 p-2 text-center">
-            <span className="text-[10px] text-stone-500 font-bold">Arquivo não encontrado</span>
-            <span className="text-[8px] text-stone-400 break-all">{photo.url}</span>
+            <span className="text-[10px] text-stone-500 font-bold leading-tight">Foto não encontrada</span>
+            <span className="text-[8px] text-stone-400 break-all mt-1">{photo.url}</span>
           </div>
         )}
       </div>
