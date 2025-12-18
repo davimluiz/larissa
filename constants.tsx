@@ -1,8 +1,8 @@
 
 import { Photo } from './types';
 
-// Em ambientes de produção (Vercel), a pasta 'public' é a raiz.
-// Portanto, acessamos os arquivos diretamente pelo nome, começando com /
+// IMPORTANTE: As imagens devem estar dentro da pasta /public no seu GitHub.
+// O navegador irá buscá-las em "seusite.vercel.app/input_file_x.png"
 export const PHOTOS: Photo[] = [
   { 
     id: 1, 
@@ -37,7 +37,7 @@ export const PHOTOS: Photo[] = [
     offsetY: 50 
   },
   { 
-    id: 4, 
+    id: 5, 
     url: "/input_file_4.png", 
     caption: "Sorriso doce", 
     rotation: -4, 
